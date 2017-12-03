@@ -3,15 +3,14 @@
 
 import random
 from random import randint
-import sys
 
-sys.setrecursionlimit(100000)  # 10000 is an example, try with different values
 
-llist = 0
-sayac = 0
-msay = 0
-deneme = 50000
-mutoran = 10
+llist = sayac = msay = 0
+deneme = 50000  # Kelime sayısını artırmadan önce kaç deneme yapacağını burada belirleyin.
+mutoran = 10  # Mutasyon yüzdesi.
+yol = "digermetinler/cogulluk.txt"  # dosya yolu buradan verilir.
+
+"""Fonksiyonlar burada başlıyor"""
 
 
 def read_words(words_file):
@@ -21,14 +20,14 @@ def read_words(words_file):
             words = line.split()
             for word in words:
                 if word not in lst:
-                    lst.append(word)  # append only this word to the list, not all words on this line
+                    lst.append(word)
         lst.sort()
         print("TOPLAM FARKLI KELİME SAYISI: %i" % len(lst))
         print(lst)
         global llist
         llist = len(lst)
         return lst
-        # return [word for line in open(words_file, 'r') for word in line.split()]
+        
 
 
 def birle(phraselst):
@@ -128,10 +127,8 @@ def yazdir(lst):
     return yazi
 
 
+"""Fonksiyonlar sonu"""
 
-#Fonksiyonlar sonu
-
-yol = "digermetinler/safsata.txt" #dosya yolu buradan verilir.
 liste = read_words(yol)
 liste = [w.lower() for w in liste]
 liste = [w.replace('â', 'a').replace('î', 'i').replace('û', 'u') for w in liste]
