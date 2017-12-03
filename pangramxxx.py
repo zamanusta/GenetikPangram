@@ -128,7 +128,10 @@ def yazdir(lst):
     return yazi
 
 
-yol = "digermetinler/safsata.txt"
+
+#Fonksiyonlar sonu
+
+yol = "digermetinler/safsata.txt" #dosya yolu buradan verilir.
 liste = read_words(yol)
 liste = [w.lower() for w in liste]
 liste = [w.replace('â', 'a').replace('î', 'i').replace('û', 'u') for w in liste]
